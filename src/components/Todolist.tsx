@@ -2,17 +2,36 @@ import * as React from 'react';
 
 
 interface IProps{
-    text:string;
+    preview:string;
 }
 
-export default class Todolist extends React.Component<IProps> {
-    render(){
-    const {text} = this.props;
-    return (
-        <div>
-            {text}
-        </div>
-    )
+interface SProps{
+    open:boolean;
 }
+export default class Todolist extends React.Component<IProps,SProps> {
+    state = {
+        open: false
+    }
+    render()
+    {
+        if (this.state.open){
+            return (
+            <> 
+                {this.props.children} 
+                <br />
+                <div onClick={() => this.setState({open:false})}>closed</div>
+            </>
+            );
+        }
+
+        return (
+            <> 
+                {this.props.preview} 
+                <br />
+                <div onClick={() => this.setState({open:true})}>Open</div>
+            </>
+            );
+        
+    }
 }
 
