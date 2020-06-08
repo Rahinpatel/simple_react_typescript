@@ -5,33 +5,39 @@ interface IProps{
     preview:string;
 }
 
-interface SProps{
-    open:boolean;
-}
-export default class Todolist extends React.Component<IProps,SProps> {
-    state = {
-        open: false
+export default class Todolist extends React.Component<IProps,any> {
+    constructor(props:IProps) {
+        super(props);
+        this.state = {open:false}
+
+    }
+    button1 = () => {
+        this.setState({open: false});
+    }
+    button2 = () => {
+        this.setState({open: true});
     }
     render()
     {
         if (this.state.open){
             return (
-            <> 
+            <>
                 {this.props.children} 
                 <br />
-                <div onClick={() => this.setState({open:false})}>closed</div>
+                <div>
+                <button onClick={this.button1}>Closed</button></div>
             </>
             );
         }
-
         return (
             <> 
                 {this.props.preview} 
                 <br />
-                <div onClick={() => this.setState({open:true})}>Open</div>
+                <div>
+                <button onClick={this.button2}>OPen</button>
+                </div>
             </>
             );
         
     }
 }
-
