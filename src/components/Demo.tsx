@@ -40,7 +40,6 @@ class AddOption extends React.Component {
                     <input type="text" name="option" />
                     <button>Add Option</button>
                 </form>
-            {/* <button OnClick={this.handlePick}></button>*/}
             </div>
         );
     }

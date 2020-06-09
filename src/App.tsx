@@ -11,14 +11,12 @@ import form from './components/form';
   render() {
     return (
       <div className="App">
-      <header className="App-header">
         <Router>
               <Route path="/demo123" component={RouterDemo} />
               <Route path="/form" component={form} />
         </Router>
         <Add />
       {/* <AddOption /> */}
-      </header>
       </div>
     );
   }
